@@ -352,62 +352,6 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
       </tags>
   </entry>
   <entry>
-    <title>回忆第一个java程序</title>
-    <url>/archives/1707f6bc.html</url>
-    <content><![CDATA[<h1 id="回忆第一个java程序"><a href="#回忆第一个java程序" class="headerlink" title="回忆第一个java程序"></a>回忆第一个java程序</h1><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文用于回忆四年前第一次编写Java程序,同时写给初学者和自己。</p>
-<h3 id="1-创建Java环境"><a href="#1-创建Java环境" class="headerlink" title="1. 创建Java环境"></a>1. 创建Java环境</h3><h4 id="1-下载及安装JDK"><a href="#1-下载及安装JDK" class="headerlink" title="1. 下载及安装JDK"></a>1. 下载及安装JDK</h4><ul>
-<li>要想运行Java程序或者编译Java程序首先得有Java环境</li>
-<li>这里使用 JDK 8<br><a href="https://download.oracle.com/otn/java/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jdk-8u251-windows-x64.exe">官网下载</a><br><a href="https://pan.baidu.com/s/1f1EDWvG-GzpQRJaC_W4SpA">某盘下载</a>提取码：9pj1<br>如果不行，<a href="https://pan.baidu.com/s/1_XgfYFPVe_sZqOVrTHK_Sw">备用链接，某盘下载</a>提取码：trs0<br>下载完成后，双击运行即可<h4 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h4></li>
-<li>右击此电脑在弹出的快捷菜单中选择属性在弹出的系统属性对话框中选择环境变量，在弹出的环境变量的对话框中选择 新建<br>输入以下代码  <pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">JAVA_HOME
-C:\Program Files\Java\jdk1.8.0_111<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-如图：<br><img src="https://img-blog.csdnimg.cn/20200903172719470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center"></li>
-<li>在环境变量对话框中找到Path  </li>
-<li>点击编辑,找到空白处点击编辑文本 输入  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">%</span>JAVA_HOME<span class="token operator">%</span><span class="token operator">/</span>bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://img-blog.csdnimg.cn/20200903172908828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center">### 验证Java 环境是否安装好<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-得到如下提示<pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">java version "1.8.0_231"
-Java(TM) SE Runtime Environment (build 1.8.0_231-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>说明JAVA环境安装成功<h3 id="创建第一个JAVA程序"><a href="#创建第一个JAVA程序" class="headerlink" title="创建第一个JAVA程序"></a>创建第一个JAVA程序</h3></li>
-<li>别人都是在控制台中输出hello,world ，这里就偏偏不一样，<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8">😝</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></li>
-<li>在任意一个位置新建一个文本文档，鼠标左键慢速双击两下重命名为Test用任意编辑器打开 ,输入以下代码:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Java is the best language in the world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>Win+R 打开运行对话框输入cmd 输入命令:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java">javac <span class="token class-name">Test</span><span class="token punctuation">.</span>java
-java <span class="token class-name">Test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-控制台就会打出<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">C:\Users\Administrator\Desktop&gt;java Test
-Java is the best language in the world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="博客持续更新中……-rofl-rofl-rofl"><a href="#博客持续更新中……-rofl-rofl-rofl" class="headerlink" title="博客持续更新中…….:rofl::rofl::rofl:"></a>博客持续更新中…….<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></h2></li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Java 基础</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>代码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo-开源框架-创建博客</title>
     <url>/archives/e7c408a1.html</url>
     <content><![CDATA[<h1 id="hexo-开源框架-创建博客"><a href="#hexo-开源框架-创建博客" class="headerlink" title="hexo-开源框架-创建博客"></a>hexo-开源框架-创建博客</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p> 现在随着计算机的飞速发展，拥有一个属于自己的博客，是一件非常平常的事。<br> 使用hexo搭建一个属于自己的个人博客，是即快捷又美观的一种方式，也是非常<br> 受到人们的喜爱的。</p>
@@ -501,6 +445,62 @@ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
         <tag>博客</tag>
         <tag>hexo</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回忆第一个java程序</title>
+    <url>/archives/1707f6bc.html</url>
+    <content><![CDATA[<h1 id="回忆第一个java程序"><a href="#回忆第一个java程序" class="headerlink" title="回忆第一个java程序"></a>回忆第一个java程序</h1><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文用于回忆四年前第一次编写Java程序,同时写给初学者和自己。</p>
+<h3 id="1-创建Java环境"><a href="#1-创建Java环境" class="headerlink" title="1. 创建Java环境"></a>1. 创建Java环境</h3><h4 id="1-下载及安装JDK"><a href="#1-下载及安装JDK" class="headerlink" title="1. 下载及安装JDK"></a>1. 下载及安装JDK</h4><ul>
+<li>要想运行Java程序或者编译Java程序首先得有Java环境</li>
+<li>这里使用 JDK 8<br><a href="https://download.oracle.com/otn/java/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jdk-8u251-windows-x64.exe">官网下载</a><br><a href="https://pan.baidu.com/s/1f1EDWvG-GzpQRJaC_W4SpA">某盘下载</a>提取码：9pj1<br>如果不行，<a href="https://pan.baidu.com/s/1_XgfYFPVe_sZqOVrTHK_Sw">备用链接，某盘下载</a>提取码：trs0<br>下载完成后，双击运行即可<h4 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h4></li>
+<li>右击此电脑在弹出的快捷菜单中选择属性在弹出的系统属性对话框中选择环境变量，在弹出的环境变量的对话框中选择 新建<br>输入以下代码  <pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">JAVA_HOME
+C:\Program Files\Java\jdk1.8.0_111<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+如图：<br><img src="https://img-blog.csdnimg.cn/20200903172719470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center"></li>
+<li>在环境变量对话框中找到Path  </li>
+<li>点击编辑,找到空白处点击编辑文本 输入  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">%</span>JAVA_HOME<span class="token operator">%</span><span class="token operator">/</span>bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://img-blog.csdnimg.cn/20200903172908828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center">### 验证Java 环境是否安装好<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+得到如下提示<pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">java version "1.8.0_231"
+Java(TM) SE Runtime Environment (build 1.8.0_231-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>说明JAVA环境安装成功<h3 id="创建第一个JAVA程序"><a href="#创建第一个JAVA程序" class="headerlink" title="创建第一个JAVA程序"></a>创建第一个JAVA程序</h3></li>
+<li>别人都是在控制台中输出hello,world ，这里就偏偏不一样，<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8">😝</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></li>
+<li>在任意一个位置新建一个文本文档，鼠标左键慢速双击两下重命名为Test用任意编辑器打开 ,输入以下代码:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Java is the best language in the world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>Win+R 打开运行对话框输入cmd 输入命令:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java">javac <span class="token class-name">Test</span><span class="token punctuation">.</span>java
+java <span class="token class-name">Test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+控制台就会打出<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">C:\Users\Administrator\Desktop&gt;java Test
+Java is the best language in the world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="博客持续更新中……-rofl-rofl-rofl"><a href="#博客持续更新中……-rofl-rofl-rofl" class="headerlink" title="博客持续更新中…….:rofl::rofl::rofl:"></a>博客持续更新中…….<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></h2></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>代码</tag>
       </tags>
   </entry>
   <entry>
