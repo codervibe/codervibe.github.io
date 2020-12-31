@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ncork内网穿透</title>
+    <url>/archives/f70cbfb8.html</url>
+    <content><![CDATA[<h1 id="Ncork内网穿透"><a href="#Ncork内网穿透" class="headerlink" title="Ncork内网穿透"></a>Ncork内网穿透</h1><h4 id="什么是内网穿透？内网穿透是一个什么样的效果？"><a href="#什么是内网穿透？内网穿透是一个什么样的效果？" class="headerlink" title="什么是内网穿透？内网穿透是一个什么样的效果？"></a>什么是内网穿透？内网穿透是一个什么样的效果？</h4><ul>
+<li><p> 内网穿透(Intranet penetration)  </p>
+</li>
+<li><p>下面是某度的介绍<br> 内网穿透，也即 NAT 穿透，进行 NAT 穿透是为了使具有某一个特定源 IP 地址和源端口号的数据包不被 NAT 设备屏蔽而正确路由到内网主机.<br> 额，看不懂对吧？我也看不懂。<br> 说白了就是可以从外网访问你家里的的电脑（服务器）上的Web应用的方法（我认为的），由于现在IPV4使用紧张，IPV6普及困难所以运营商并不会给家<br> 里的路由器分配公网IP 几乎所有的上网IP都是动态的，而设备使用都是内网IP。在外网是访问不到的。就像是你在网上买东西，你需要填写自己家的地<br> 址快递员才能找到你，但是你家所在的小区又门卫，门卫不让快递员进入小区，所以啊快递员只能在小区门口等着叫你下来拿快递或者把快递放在和门卫<br> 这里然后你自己去拿。 </p>
+</li>
+<li><p> 效果<br><img src="https://img-blog.csdnimg.cn/20200825123401303.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>###在使用了内网穿透之后<br><img src="https://img-blog.csdnimg.cn/20200825123401296.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p> 要做内网穿透首先得准备一个软件 ngrok<br><a href="https://codeload.github.com/inconshreveable/ngrok/zip/master">下载链接</a><br>或者  </p>
+</li>
+<li><p> 使用git 进行下载</p>
+<pre class="line-numbers language-none"><code class="language-none">git clone https://codeload.github.com/inconshreveable/ngrok/zip/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>搭建办法请参考<a href="https://aotu.io/notes/2016/02/19/ngrok/index.html">https://aotu.io/notes/2016/02/19/ngrok/index.html</a> </p>
+</li>
+<li><p>但是这个软件是用go语言写的或在没有go语言运行环境的情况下是不能使用的，也就是说这个软甲跨平台做的不是很好。<br> 要做内网穿透还要另一个差不多的软件，这个软件的名字也叫Ncork<br><a href="http://hls.ctopus.com/sunny/windows_amd64.zip?v=2">下载地址</a><br>PS:连接是从下载器中拷贝出来的所以可以直接点击下载，并且这个链接是windows 平台 64X下的<br>官网下载地址:<a href="http://www.ngrok.cc/download.html">下载地址</a>   </p>
+</li>
+<li><p> 在官网里面注册成为用户登录后就会跳转到用户页面</p>
+</li>
+<li><p> 在官网中有一些官方给的教程，链接<a href="http://www.ngrok.cc/_book/">http://www.ngrok.cc/_book/</a>  </p>
+</li>
+<li><p> 用户页面<br><img src="https://img-blog.csdnimg.cn/20200825123400514.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>  选择隧道管理—–开通隧道<br><img src="https://img-blog.csdnimg.cn/20200825123400551.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200825123401239.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"> </p>
+</li>
+<li><p> 选择想要的服务器 点击立即购买 最低10元 但是建议不要购买外国的服务器，因为速度较慢<br><img src="https://img-blog.csdnimg.cn/20200825123401291.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p> 在这里需要填写一些信息<br><img src="https://img-blog.csdnimg.cn/20200825123400491.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><blockquote>
+<p>隧道名称：可以随便填写，无关紧要只是为了一个备注 </p>
+<blockquote>
+<p>前置域名：服务器免费赠送的域名，请不要带上后缀，如果要 sunny.free.idcfengye.com 只需要填写 sunny 即可<br>   本地端口：可以为同一个局域网内任意一台机器进行映射，只需要填对ip和端口就行，例如：192.168.1.1:80<br>   前提是这个端口下有相应的web服务<br>   http验证用户名：非必填项，在需要的时候填写，否则可以不填<br>   http验证密码：非必填项，在需要的时候填写，否则可以不填    </p>
+</blockquote>
+</blockquote>
+</li>
+<li><p> 在购买好服务器之后在隧道管理中就有了信息<br><img src="https://img-blog.csdnimg.cn/20200825123400440.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"> </p>
+</li>
+<li><p> 打开之前下载的压缩包<br><img src="https://img-blog.csdnimg.cn/20200825123400475.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p> 双击BAT文件或右击以管理员方式运行<br><img src="https://img-blog.csdnimg.cn/20200825123400521.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p> 复制粘贴网页上的ID,然后回车<br><img src="https://img-blog.csdnimg.cn/20200825123400533.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">  </p>
+</li>
+<li><p> 当界面输出这样时，访问上面的网址就可以了<br><img src="https://img-blog.csdnimg.cn/20200825123359261.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p> 因为我转的是WAMP中apche的端口所以我的访问是这个样子的<br><img src="https://img-blog.csdnimg.cn/2020082512340129.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSDN支持的markdown的一些语法示例</title>
     <url>/archives/w5se8f4swe5.html</url>
     <content><![CDATA[<h1 id="CSDN支持的markdown的一些语法示例"><a href="#CSDN支持的markdown的一些语法示例" class="headerlink" title="CSDN支持的markdown的一些语法示例"></a>CSDN支持的markdown的一些语法示例</h1><ul>
@@ -167,82 +243,6 @@ cond(no)-&gt;op<span aria-hidden="true" class="line-numbers-rows"><span></span><
             document.body.appendChild(img);
           });
       </script>]]></content>
-  </entry>
-  <entry>
-    <title>Ncork内网穿透</title>
-    <url>/archives/f70cbfb8.html</url>
-    <content><![CDATA[<h1 id="Ncork内网穿透"><a href="#Ncork内网穿透" class="headerlink" title="Ncork内网穿透"></a>Ncork内网穿透</h1><h4 id="什么是内网穿透？内网穿透是一个什么样的效果？"><a href="#什么是内网穿透？内网穿透是一个什么样的效果？" class="headerlink" title="什么是内网穿透？内网穿透是一个什么样的效果？"></a>什么是内网穿透？内网穿透是一个什么样的效果？</h4><ul>
-<li><p> 内网穿透(Intranet penetration)  </p>
-</li>
-<li><p>下面是某度的介绍<br> 内网穿透，也即 NAT 穿透，进行 NAT 穿透是为了使具有某一个特定源 IP 地址和源端口号的数据包不被 NAT 设备屏蔽而正确路由到内网主机.<br> 额，看不懂对吧？我也看不懂。<br> 说白了就是可以从外网访问你家里的的电脑（服务器）上的Web应用的方法（我认为的），由于现在IPV4使用紧张，IPV6普及困难所以运营商并不会给家<br> 里的路由器分配公网IP 几乎所有的上网IP都是动态的，而设备使用都是内网IP。在外网是访问不到的。就像是你在网上买东西，你需要填写自己家的地<br> 址快递员才能找到你，但是你家所在的小区又门卫，门卫不让快递员进入小区，所以啊快递员只能在小区门口等着叫你下来拿快递或者把快递放在和门卫<br> 这里然后你自己去拿。 </p>
-</li>
-<li><p> 效果<br><img src="https://img-blog.csdnimg.cn/20200825123401303.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>###在使用了内网穿透之后<br><img src="https://img-blog.csdnimg.cn/20200825123401296.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><p> 要做内网穿透首先得准备一个软件 ngrok<br><a href="https://codeload.github.com/inconshreveable/ngrok/zip/master">下载链接</a><br>或者  </p>
-</li>
-<li><p> 使用git 进行下载</p>
-<pre class="line-numbers language-none"><code class="language-none">git clone https://codeload.github.com/inconshreveable/ngrok/zip/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>搭建办法请参考<a href="https://aotu.io/notes/2016/02/19/ngrok/index.html">https://aotu.io/notes/2016/02/19/ngrok/index.html</a> </p>
-</li>
-<li><p>但是这个软件是用go语言写的或在没有go语言运行环境的情况下是不能使用的，也就是说这个软甲跨平台做的不是很好。<br> 要做内网穿透还要另一个差不多的软件，这个软件的名字也叫Ncork<br><a href="http://hls.ctopus.com/sunny/windows_amd64.zip?v=2">下载地址</a><br>PS:连接是从下载器中拷贝出来的所以可以直接点击下载，并且这个链接是windows 平台 64X下的<br>官网下载地址:<a href="http://www.ngrok.cc/download.html">下载地址</a>   </p>
-</li>
-<li><p> 在官网里面注册成为用户登录后就会跳转到用户页面</p>
-</li>
-<li><p> 在官网中有一些官方给的教程，链接<a href="http://www.ngrok.cc/_book/">http://www.ngrok.cc/_book/</a>  </p>
-</li>
-<li><p> 用户页面<br><img src="https://img-blog.csdnimg.cn/20200825123400514.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><p>  选择隧道管理—–开通隧道<br><img src="https://img-blog.csdnimg.cn/20200825123400551.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200825123401239.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"> </p>
-</li>
-<li><p> 选择想要的服务器 点击立即购买 最低10元 但是建议不要购买外国的服务器，因为速度较慢<br><img src="https://img-blog.csdnimg.cn/20200825123401291.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><p> 在这里需要填写一些信息<br><img src="https://img-blog.csdnimg.cn/20200825123400491.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><blockquote>
-<p>隧道名称：可以随便填写，无关紧要只是为了一个备注 </p>
-<blockquote>
-<p>前置域名：服务器免费赠送的域名，请不要带上后缀，如果要 sunny.free.idcfengye.com 只需要填写 sunny 即可<br>   本地端口：可以为同一个局域网内任意一台机器进行映射，只需要填对ip和端口就行，例如：192.168.1.1:80<br>   前提是这个端口下有相应的web服务<br>   http验证用户名：非必填项，在需要的时候填写，否则可以不填<br>   http验证密码：非必填项，在需要的时候填写，否则可以不填    </p>
-</blockquote>
-</blockquote>
-</li>
-<li><p> 在购买好服务器之后在隧道管理中就有了信息<br><img src="https://img-blog.csdnimg.cn/20200825123400440.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"> </p>
-</li>
-<li><p> 打开之前下载的压缩包<br><img src="https://img-blog.csdnimg.cn/20200825123400475.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><p> 双击BAT文件或右击以管理员方式运行<br><img src="https://img-blog.csdnimg.cn/20200825123400521.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><p> 复制粘贴网页上的ID,然后回车<br><img src="https://img-blog.csdnimg.cn/20200825123400533.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">  </p>
-</li>
-<li><p> 当界面输出这样时，访问上面的网址就可以了<br><img src="https://img-blog.csdnimg.cn/20200825123359261.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-<li><p> 因为我转的是WAMP中apche的端口所以我的访问是这个样子的<br><img src="https://img-blog.csdnimg.cn/2020082512340129.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,Text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MzczMTQ5,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-</li>
-</ul>
-<h2 id="博客持续更新中……"><a href="#博客持续更新中……" class="headerlink" title="博客持续更新中……."></a>博客持续更新中…….</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-      </tags>
   </entry>
   <entry>
     <title>Spring配置数据源</title>
